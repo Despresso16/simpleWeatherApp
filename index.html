@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="PL-pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pogoda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1>SPRAWDŹ POGODĘ</h1>
+        <i class="wi wi-cloud-refresh"></i>
+        <label for="city">Miasto:</label>
+        <select name="city" id="city">
+            <option value="none" disabled selected>Wybierz miasto</option>
+            <option value="Warszawa">Warszawa</option>
+            <option value="Kraków">Kraków</option>
+            <option value="Olkusz">Olkusz</option>
+        </select>
+        <label for="time">Czas:</label>
+        <select name="time" id="time">
+            <option value="none" selected disabled>Wybierz czas</option>
+            <option value="Teraz">Teraz</option>
+            <option value="1">Za godzinę</option>
+            <option value="12">Za 12h</option>
+            <option value="24">Za 24h</option>
+            <option value="48">Za 48h</option>
+        </select>
+        <button id="send" onclick="viewWeather()">Zobacz pogodę</button>
+        <p id="error">error</p>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="left">
+                <i class="wi wi-cloud" id="weather-icon"></i>
+            </div>
+            <div class="right">
+                <h2 id="cityName">Nazwa Miasta</h2>
+                <h4 id="temp"><i class="wi wi-thermometer"></i>  Temperatura°C</h4>
+                <h4 id="weather-desc"><i class="wi wi-cloud"></i>  Pogoda</h4>
+                <div class="more-info">
+                    <h3>Więcej info:</h3>
+                    <ul>
+                        <li id="clouds"><i class="wi wi-cloudy"></i>  % zachmurzenia</li>
+                        <li id="rain"><i class="wi wi-sprinkle"></i>  Ile deszczu</li>
+                        <li id="snow"><i class="wi wi-snow"></i>  Ile śniegu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
