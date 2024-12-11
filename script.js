@@ -53,7 +53,11 @@ const viewWeather = () =>{
         .then(data => writeViewNow(data));
     }
     else if(timeInput.value == "Custom"){
-        
+        if(customTime.value == ""){
+            error.textContent = "Wprowadź dane!";
+            error.style.visibility = "visible";
+            return;
+        }
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(2)}&longitude=${long.toFixed(2)}&current=temperature_2m,rain,snowfall,cloud_cover&hourly=temperature_2m,rain,snowfall,cloud_cover&timezone=Europe%2FBerlin`)
         .then(res => res.json())
         .then(data => writeViewLater(data, parseInt(customTime.value) -1));

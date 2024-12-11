@@ -36,6 +36,7 @@ nav i{
     margin: 50px;
 }
 select {
+    cursor: pointer;
     width: 80%;
     height: 5vh;
     border: none;
@@ -69,6 +70,7 @@ label{
     margin-top: 10px;
 }
 button{
+    cursor: pointer;
     background-color: white;
     width: 50%;
     height: 5vh;
