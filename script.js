@@ -57,6 +57,7 @@ const writeViewNow = (data) =>{
     icon.classList.remove("wi-day-sleet")
     icon.classList.remove("wi-day-rain")
     icon.classList.remove("wi-day-snow-wind")
+    icon.classList.remove("wi-cloudy")
     icon.classList.remove("wi-day-cloudy")
     icon.classList.remove("wi-day-sunny")
     if(data.current.rain > 0 && data.current.snowfall > 0){
@@ -96,6 +97,7 @@ const writeViewLater = (data) =>{
     icon.classList.remove("wi-day-sleet")
     icon.classList.remove("wi-day-rain")
     icon.classList.remove("wi-day-snow-wind")
+    icon.classList.remove("wi-cloudy")
     icon.classList.remove("wi-day-cloudy")
     icon.classList.remove("wi-day-sunny")
     if(data.hourly.rain[h] > 0 && data.hourly.snowfall[h] > 0){
