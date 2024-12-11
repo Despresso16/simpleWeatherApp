@@ -72,8 +72,12 @@ const writeViewNow = (data) =>{
         desc.innerHTML = `<i class="wi wi-cloud"></i>  Opady śniegu`
         icon.classList.add("wi-day-snow-wind")
     }
-    else if(data.current.cloud_cover >= 45){
-        desc.innerHTML = `<i class="wi wi-cloud"></i>  Pochmurnie`
+    else if(data.current.cloud_cover >= 80){
+        desc.innerHTML = `<i class="wi wi-cloud"></i>   Mocno Pochmurnie`
+        icon.classList.add("wi-cloudy")
+    }
+    else if(data.current.cloud_cover >= 40){
+        desc.innerHTML = `<i class="wi wi-cloud"></i>   Pochmurnie`
         icon.classList.add("wi-day-cloudy")
     }
     else {
@@ -107,7 +111,11 @@ const writeViewLater = (data) =>{
         desc.innerHTML = `<i class="wi wi-cloud"></i>  Opady śniegu`
         icon.classList.add("wi-day-snow-wind")
     }
-    else if(data.hourly.cloud_cover[h] >= 45){
+    else if(data.hourly.cloud_cover[h] >= 80){
+        desc.innerHTML = `<i class="wi wi-cloud"></i>  Mocno Pochmurnie`
+        icon.classList.add("wi-cloudy")
+    }
+    else if(data.hourly.cloud_cover[h] >= 40){
         desc.innerHTML = `<i class="wi wi-cloud"></i>  Pochmurnie`
         icon.classList.add("wi-day-cloudy")
     }
