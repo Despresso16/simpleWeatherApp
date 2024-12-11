@@ -43,6 +43,14 @@ const viewWeather = () =>{
             lat = 50.16
             long = 19.33
             break;
+        case "Chrzanów":
+            lat = 50.08
+            long = 19.24
+            break;
+        case "Drobin":
+            lat = 52.44
+            long = 19.59
+            break;
         default:
             return;
     }
@@ -55,6 +63,11 @@ const viewWeather = () =>{
     else if(timeInput.value == "Custom"){
         if(customTime.value == ""){
             error.textContent = "Wprowadź dane!";
+            error.style.visibility = "visible";
+            return;
+        }
+        else if(customTime.value > 100 || customTime.value < 1){
+            error.textContent = "Wprowadź poprawny własny czas!";
             error.style.visibility = "visible";
             return;
         }

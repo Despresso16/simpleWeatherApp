@@ -69,22 +69,7 @@ select {
 label{
     margin-top: 10px;
 }
-button{
-    cursor: pointer;
-    background-color: white;
-    width: 50%;
-    height: 5vh;
-    border: none;
-    border-radius: 10px;
-    color: rgb(11, 54, 182);;
-    transition: all 1s;
-    margin: 20px;
-}
-button:hover{
-    background-color: rgb(11, 54, 182);
-    color: white;
-    border: 1px solid white;
-}
+
 main{
     width: 80vw;
     height: 100vh;

@@ -15,14 +15,16 @@
         <h1>SPRAWDŹ POGODĘ</h1>
         <i class="wi wi-cloud-refresh"></i>
         <label for="city">Miasto:</label>
-        <select name="city" id="city">
+        <select name="city" id="city" onchange="viewWeather()">
             <option value="none" disabled selected>Wybierz miasto</option>
             <option value="Warszawa">Warszawa</option>
             <option value="Kraków">Kraków</option>
             <option value="Olkusz">Olkusz</option>
+            <option value="Chrzanów">Chrzanów</option>
+            <option value="Drobin">Drobin</option>
         </select>
         <label for="time">Czas:</label>
-        <select name="time" id="time" onchange="viewCustom()">
+        <select name="time" id="time" onchange="viewWeather()" oninput="viewCustom()">
             <option value="none" selected disabled>Wybierz czas</option>
             <option value="Teraz">Teraz</option>
             <option value="1">Za godzinę</option>
@@ -33,9 +35,8 @@
         </select>
         <div id="custom">
             <label id="customTimeLabel" for="customTime">Wpisz za ile godzin:</label>
-            <input type="number" name="customTime" id="customTime" placeholder="Wpisz za ile godzin" min="1" max="100" value="1">
+            <input type="number" name="customTime" id="customTime" placeholder="Wpisz za ile godzin" min="1" max="100" value="1" onchange="viewWeather()">
         </div>
-        <button id="send" onclick="viewWeather()">Zobacz pogodę</button>
         <p id="error">error</p>
     </nav>
     <main>
