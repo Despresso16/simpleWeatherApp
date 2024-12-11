@@ -45,6 +45,26 @@ select {
     padding: 5px;
     margin: 0px 20px 10px 20px;
 }
+#custom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 0vh;
+    opacity: 0;
+    transition: all 1s;
+    margin-top: 10px 20px 10px 20px;
+}
+#custom input{
+    width: 80%;
+    height: 5vh;
+    border: none;
+    background-color: white;
+    color: #333;
+    border-radius: 10px;
+    padding: 5px
+}
+
 label{
     margin-top: 10px;
 }

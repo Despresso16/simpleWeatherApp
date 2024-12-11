@@ -8,8 +8,19 @@ const clouds = document.querySelector("#clouds")
 const rain = document.querySelector("#rain")
 const snow = document.querySelector("#snow")
 const error = document.querySelector("#error")
+const customTime = document.querySelector("#customTime")
+const customTimeCont = document.querySelector("#custom")
 
-
+const viewCustom = () =>{
+    if(timeInput.value == "Custom"){
+        customTimeCont.style.height = "8vh";
+        customTimeCont.style.opacity = 1;
+    } 
+    else{
+        customTimeCont.style.height = "0vh";
+        customTimeCont.style.opacity = 0;
+    }
+}
 const viewWeather = () =>{
     error.style.visibility = "hidden"
     if(cityInput.value == "none" || timeInput.value == "none"){
@@ -41,6 +52,12 @@ const viewWeather = () =>{
         .then(res => res.json())
         .then(data => writeViewNow(data));
     }
+    else if(timeInput.value == "Custom"){
+        
+        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(2)}&longitude=${long.toFixed(2)}&current=temperature_2m,rain,snowfall,cloud_cover&hourly=temperature_2m,rain,snowfall,cloud_cover&timezone=Europe%2FBerlin`)
+        .then(res => res.json())
+        .then(data => writeViewLater(data, parseInt(customTime.value) -1));
+    }
     else {
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(2)}&longitude=${long.toFixed(2)}&current=temperature_2m,rain,snowfall,cloud_cover&hourly=temperature_2m,rain,snowfall,cloud_cover&timezone=Europe%2FBerlin`)
         .then(res => res.json())
@@ -48,6 +65,7 @@ const viewWeather = () =>{
     }
 }
 const writeViewNow = (data) =>{
+    console.log(data);
     cityDisplay.textContent = `${cityInput.value} - Teraz`
     temp.innerHTML = `<i class="wi wi-thermometer"></i>  Temperatura: ${data.current.temperature_2m}°C`;
     clouds.innerHTML = `<i class="wi wi-cloudy"></i>  Zachmurzenie: ${data.current.cloud_cover.toFixed(2)}%`
@@ -86,9 +104,8 @@ const writeViewNow = (data) =>{
         icon.classList.add("wi-day-sunny")
     }
 }
-const writeViewLater = (data) =>{
-    let h = timeInput.value - 1;
-    cityDisplay.textContent = `${cityInput.value} - Za ${timeInput.value}h`
+const writeViewLater = (data, h = timeInput.value - 1) =>{
+    cityDisplay.textContent = `${cityInput.value} - Za ${h + 1}h`
     temp.innerHTML = `<i class="wi wi-thermometer"></i>  Temperatura: ${data.hourly.temperature_2m[h]}°C`;
     clouds.innerHTML = `<i class="wi wi-cloudy"></i>  Zachmurzenie: ${data.hourly.cloud_cover[h].toFixed(2)}%`
     rain.innerHTML = `<i class="wi wi-sprinkle"></i>  Ilość deszczu ${data.hourly.rain[h]}mm`

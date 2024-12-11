@@ -22,14 +22,19 @@
             <option value="Olkusz">Olkusz</option>
         </select>
         <label for="time">Czas:</label>
-        <select name="time" id="time">
+        <select name="time" id="time" onchange="viewCustom()">
             <option value="none" selected disabled>Wybierz czas</option>
             <option value="Teraz">Teraz</option>
             <option value="1">Za godzinę</option>
             <option value="12">Za 12h</option>
             <option value="24">Za 24h</option>
             <option value="48">Za 48h</option>
+            <option value="Custom">Własne</option>
         </select>
+        <div id="custom">
+            <label id="customTimeLabel" for="customTime">Wpisz za ile godzin:</label>
+            <input type="number" name="customTime" id="customTime" placeholder="Wpisz za ile godzin" min="1" max="100" value="1">
+        </div>
         <button id="send" onclick="viewWeather()">Zobacz pogodę</button>
         <p id="error">error</p>
     </nav>
